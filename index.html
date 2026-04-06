@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vanrley Macedo</title>
+
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+
+        * {
+
+            font-family: 'Outfit', sans-serif;
+
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient( circle at top, rgba( 80, 80, 80, 0.45 ), transparent 35% ),
+                radial-gradient( circle at bottom, rgba( 0, 255, 120, 0.08 ), transparent 25% ),
+                linear-gradient( 180deg, #2b2b2b 0%, #131313 45%, #0b0b0b 100% );
+
+            overflow: hidden;
+        }
+
+        .scene {
+
+            perspective: 1800px;
+        }
+
+        .card-3d {
+
+            position: relative;
+
+            width: 360px;
+
+            border-radius: 34px;
+
+            transform-style: preserve-3d;
+
+            transform: rotateX( 14deg ) rotateY( -10deg );
+
+            transition: transform 0.45s ease;
+        }
+
+        .card-3d:hover {
+
+            transform: rotateX( 6deg ) rotateY( -3deg ) translateY( -6px );
+        }
+
+        .card-shadow-base {
+
+            position: absolute;
+
+            inset: auto 18px -38px 18px;
+
+            height: 60px;
+
+            border-radius: 999px;
+
+            background: rgba( 0, 0, 0, 0.55 );
+
+            filter: blur( 24px );
+
+            transform: translateZ( -80px );
+        }
+
+        .card-shell {
+
+            position: relative;
+
+            border-radius: 34px;
+
+            background:
+                linear-gradient( 180deg, rgba( 42, 42, 42, 0.96 ) 0%, rgba( 18, 18, 18, 0.98 ) 100% );
+
+            border: 1px solid rgba( 255, 255, 255, 0.08 );
+
+            box-shadow:
+                0 30px 60px rgba( 0, 0, 0, 0.55 ),
+                inset 0 2px 0 rgba( 255, 255, 255, 0.10 ),
+                inset 0 -10px 20px rgba( 0, 0, 0, 0.45 ),
+                0 0 0 2px rgba( 255, 255, 255, 0.02 );
+
+            transform: translateZ( 0px );
+        }
+
+        .card-shell::before {
+
+            content: '';
+
+            position: absolute;
+
+            inset: 12px;
+
+            border-radius: 26px;
+
+            background:
+                linear-gradient( 180deg, rgba( 255, 255, 255, 0.06 ), rgba( 255, 255, 255, 0.01 ) 30%, rgba( 0, 0, 0, 0.18 ) 100% );
+
+            pointer-events: none;
+        }
+
+        .avatar-wrap {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: -68px;
+
+            transform: translateX( -50% ) translateZ( 70px );
+
+            width: 140px;
+
+            height: 140px;
+
+            border-radius: 999px;
+
+            background:
+                linear-gradient( 145deg, #39ff88 0%, #1ed760 45%, #11b84f 100% );
+
+            padding: 6px;
+
+            box-shadow:
+                0 18px 40px rgba( 0, 255, 115, 0.38 ),
+                0 0 0 8px rgba( 255, 255, 255, 0.04 ),
+                inset 0 2px 6px rgba( 255, 255, 255, 0.35 );
+
+        }
+
+        .avatar-wrap::before {
+
+            content: '';
+
+            position: absolute;
+
+            inset: -10px;
+
+            border-radius: 999px;
+
+            border: 1px solid rgba( 57, 255, 136, 0.32 );
+
+            filter: blur( 1px );
+        }
+
+        .avatar {
+
+            width: 100%;
+
+            height: 100%;
+
+            border-radius: 999px;
+
+            object-fit: cover;
+
+            display: block;
+
+            border: 5px solid #f7f7f7;
+        }
+
+        .mini-whatsapp {
+
+            position: absolute;
+
+            right: 6px;
+
+            bottom: 8px;
+
+            width: 36px;
+
+            height: 36px;
+
+            border-radius: 999px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: linear-gradient( 180deg, #20d860 0%, #0eaa43 100% );
+
+            color: white;
+
+            box-shadow:
+                0 10px 20px rgba( 0, 0, 0, 0.35 ),
+                inset 0 2px 4px rgba( 255, 255, 255, 0.22 );
+        }
+
+        .title-top {
+
+            letter-spacing: 0.28em;
+        }
+
+        .btn-3d {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            height: 52px;
+
+            border-radius: 999px;
+
+            font-weight: 700;
+
+            transition: all 0.25s ease;
+
+            box-shadow:
+                0 12px 18px rgba( 0, 0, 0, 0.28 ),
+                inset 0 2px 4px rgba( 255, 255, 255, 0.18 );
+        }
+
+        .btn-3d:active {
+
+            transform: translateY( 2px );
+        }
+
+        .btn-whatsapp {
+
+            background: linear-gradient( 180deg, #32ff7e 0%, #17c45a 100% );
+
+            color: #06250f;
+        }
+
+        .btn-share {
+
+            background: linear-gradient( 180deg, #f4f4f4 0%, #d7d7d7 100% );
+
+            color: #111111;
+        }
+
+        .metal-line {
+
+            height: 1px;
+
+            background: linear-gradient( 90deg, transparent 0%, rgba( 255, 255, 255, 0.16 ) 50%, transparent 100% );
+        }
+
+        .bg-rays {
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient( circle at center, rgba( 255, 255, 255, 0.06 ) 0%, transparent 38% ),
+                repeating-conic-gradient(
+                    from 0deg,
+                    rgba( 255, 255, 255, 0.035 ) 0deg,
+                    rgba( 255, 255, 255, 0.00 ) 12deg,
+                    rgba( 255, 255, 255, 0.00 ) 22deg
+                );
+
+            opacity: 0.65;
+
+            transform: scale( 1.3 );
+        }
+
+    </style>
+
+</head>
+
+<body class="flex items-center justify-center px-6 relative">
+
+    <div class="bg-rays"></div>
+
+    <div class="scene relative z-10">
+
+        <div class="card-3d">
+
+            <div class="card-shadow-base"></div>
+
+            <div class="text-center mb-6">
+
+                <div class="title-top text-white text-[11px] font-semibold uppercase opacity-90">
+
+                    Página de links
+
+                </div>
+
+                <div class="text-[10px] text-green-400 tracking-[0.35em] uppercase mt-1">
+
+                    página premium
+
+                </div>
+
+            </div>
+
+            <div class="card-shell pt-24 px-6 pb-6">
+
+                <div class="avatar-wrap">
+
+                    <img
+                        src="https://i.postimg.cc/9QjmTN5Q/logo.jpg"
+                        alt="Avatar"
+                        class="avatar"
+                    >
+
+                    <div class="mini-whatsapp">
+
+                        <i class="fa-brands fa-whatsapp text-[18px]"></i>
+
+                    </div>
+
+                </div>
+
+                <div class="text-center">
+
+                    <div class="text-[10px] uppercase tracking-[0.38em] text-green-400 font-semibold">
+
+                        contato no whatsapp
+
+                    </div>
+
+                    <h1 class="text-white text-[28px] font-extrabold mt-2 leading-none">
+
+                        Vanrley Macedo
+
+                    </h1>
+
+                    <p class="text-green-400 text-[22px] font-black mt-2 tracking-[0.08em]">
+
+                       (98) 97018-0089
+                    </p>
+
+                    <p class="text-zinc-400 text-[11px] leading-5 mt-3 max-w-[260px] mx-auto">
+
+                        Clique abaixo e fale comigo diretamente no WhatsApp.
+                    </p>
+
+                </div>
+
+                <div class="metal-line my-5"></div>
+
+                <div class="grid grid-cols-[1fr_70px] gap-3">
+
+                    <a
+                        href="https://wa.me/5598970180089"
+                        target="_blank"
+                        class="btn-3d btn-whatsapp text-[15px]"
+                    >
+                        <i class="fa-brands fa-whatsapp text-[22px]"></i>
+
+                        <span>WhatsApp</span>
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn-3d btn-share text-[18px]"
+                        onclick="compartilharPagina( )"
+                    >
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function compartilharPagina( )
+        {
+            if ( navigator.share )
+            {
+                navigator.share( {
+                    title : 'Pagina Vanrley Macedo',
+                    text  : 'Veja meu site',
+                    url   : window.location.href
+                } );
+
+                return;
+            }
+
+            navigator.clipboard.writeText( window.location.href );
+
+            alert( 'Link copiado com sucesso!' );
+        }
+
+    </script>
+
+</body>
+
+</html>
