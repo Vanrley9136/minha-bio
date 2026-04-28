@@ -6,7 +6,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio Full Stack</title>
+    <meta name="description" content="Desenvolvedor Full Stack especializado em landing pages, sistemas web, aplicativos, hospedagem de sites, lojas virtuais e integrações.">
+
+    <title>Vanrley Dev | Desenvolvedor Full Stack</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -34,6 +36,11 @@
         a {
             color: inherit;
             text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         .page {
@@ -221,32 +228,6 @@
             overflow: hidden;
         }
 
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient( 120deg, transparent, rgba( 255, 255, 255, 0.08 ), transparent );
-            transform: translateX( -100% );
-            animation: shine 5s infinite;
-        }
-
-        @keyframes shine {
-
-            0% {
-                transform: translateX( -100% );
-            }
-
-            55% {
-                transform: translateX( 100% );
-            }
-
-            100% {
-                transform: translateX( 100% );
-            }
-
-        }
-
         .profile-image {
             position: relative;
             width: 100%;
@@ -254,34 +235,6 @@
             object-fit: cover;
             border-radius: 30px;
             background: #111827;
-            display: block;
-        }
-
-        .floating-box {
-            position: absolute;
-            left: -28px;
-            bottom: 36px;
-            width: 240px;
-            padding: 18px;
-            border-radius: 22px;
-            background: rgba( 15, 23, 42, 0.86 );
-            border: 1px solid rgba( 255, 255, 255, 0.13 );
-            backdrop-filter: blur( 18px );
-            box-shadow: 0 26px 80px rgba( 0, 0, 0, 0.36 );
-        }
-
-        .floating-box strong {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            margin-bottom: 8px;
-            color: #38bdf8;
-        }
-
-        .floating-box p {
-            font-size: 13px;
-            line-height: 1.6;
-            color: rgba( 255, 255, 255, 0.72 );
         }
 
         .mini-terminal {
@@ -328,6 +281,33 @@
             color: #22c55e;
         }
 
+        .floating-box {
+            position: absolute;
+            left: -28px;
+            bottom: 36px;
+            width: 240px;
+            padding: 18px;
+            border-radius: 22px;
+            background: rgba( 15, 23, 42, 0.86 );
+            border: 1px solid rgba( 255, 255, 255, 0.13 );
+            backdrop-filter: blur( 18px );
+            box-shadow: 0 26px 80px rgba( 0, 0, 0, 0.36 );
+        }
+
+        .floating-box strong {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 8px;
+            color: #38bdf8;
+        }
+
+        .floating-box p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: rgba( 255, 255, 255, 0.72 );
+        }
+
         .section {
             padding: 95px 0;
         }
@@ -356,56 +336,87 @@
             gap: 22px;
         }
 
+        .card,
+        .service-card,
+        .info,
+        .contact-box {
+            border: 1px solid rgba( 148, 163, 184, 0.18 );
+            background: rgba( 15, 23, 42, 0.72 );
+            backdrop-filter: blur( 18px );
+        }
+
         .card {
-            position: relative;
             padding: 30px;
             border-radius: 30px;
-            background: rgba( 15, 23, 42, 0.68 );
-            border: 1px solid rgba( 148, 163, 184, 0.18 );
-            transition: 0.3s;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            inset: auto 0 0 0;
-            height: 3px;
-            background: linear-gradient( 90deg, #38bdf8, #a855f7 );
-            opacity: 0;
             transition: 0.3s;
         }
 
-        .card:hover {
+        .card:hover,
+        .service-card:hover {
             transform: translateY( -8px );
             border-color: rgba( 56, 189, 248, 0.46 );
             box-shadow: 0 28px 80px rgba( 0, 0, 0, 0.24 );
         }
 
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 18px;
-            background: linear-gradient( 135deg, rgba( 56, 189, 248, 0.20 ), rgba( 168, 85, 247, 0.18 ) );
+        .card-icon,
+        .service-icon {
+            width: 62px;
+            height: 62px;
+            border-radius: 20px;
+            background: linear-gradient( 135deg, rgba( 56, 189, 248, 0.22 ), rgba( 168, 85, 247, 0.20 ) );
             display: grid;
             place-items: center;
             margin-bottom: 22px;
             color: #38bdf8;
-            font-size: 24px;
+            font-size: 25px;
         }
 
-        .card h3 {
-            font-size: 22px;
+        .card h3,
+        .service-card h3 {
+            font-size: 23px;
             margin-bottom: 14px;
         }
 
-        .card p {
-            color: rgba( 226, 232, 240, 0.68 );
+        .card p,
+        .service-card p {
+            color: rgba( 226, 232, 240, 0.70 );
             line-height: 1.75;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat( 3, 1fr );
+            gap: 24px;
+        }
+
+        .service-card {
+            position: relative;
+            min-height: 300px;
+            padding: 32px;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            right: -42px;
+            bottom: -42px;
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+            background: rgba( 56, 189, 248, 0.09 );
+        }
+
+        .service-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            opacity: 0.88;
+            border: 1px solid rgba( 255, 255, 255, 0.10 );
         }
 
         .stack {
@@ -455,8 +466,6 @@
         .info {
             padding: 24px;
             border-radius: 24px;
-            background: rgba( 2, 6, 23, 0.42 );
-            border: 1px solid rgba( 255, 255, 255, 0.08 );
         }
 
         .info i {
@@ -477,77 +486,9 @@
             line-height: 1.4;
         }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat( 2, 1fr );
-            gap: 24px;
-        }
-
-        .project {
-            min-height: 320px;
-            padding: 30px;
-            border-radius: 32px;
-            background:
-                linear-gradient( 135deg, rgba( 56, 189, 248, 0.12 ), rgba( 168, 85, 247, 0.09 ) ),
-                rgba( 15, 23, 42, 0.72 );
-            border: 1px solid rgba( 148, 163, 184, 0.18 );
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: 0.3s;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .project::after {
-            content: '</>';
-            position: absolute;
-            right: 24px;
-            top: 18px;
-            font-size: 90px;
-            font-weight: 900;
-            color: rgba( 255, 255, 255, 0.035 );
-        }
-
-        .project:hover {
-            transform: translateY( -8px );
-            border-color: rgba( 56, 189, 248, 0.42 );
-        }
-
-        .project h3 {
-            font-size: 28px;
-            margin-bottom: 14px;
-        }
-
-        .project p {
-            color: rgba( 226, 232, 240, 0.70 );
-            line-height: 1.75;
-            max-width: 520px;
-        }
-
-        .tags {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 22px;
-        }
-
-        .tag {
-            padding: 8px 12px;
-            border-radius: 999px;
-            background: rgba( 255, 255, 255, 0.08 );
-            color: rgba( 255, 255, 255, 0.76 );
-            font-size: 12px;
-            font-weight: 700;
-        }
-
         .contact-box {
             padding: 40px;
             border-radius: 36px;
-            background:
-                linear-gradient( 135deg, rgba( 56, 189, 248, 0.15 ), rgba( 168, 85, 247, 0.12 ) ),
-                rgba( 15, 23, 42, 0.74 );
-            border: 1px solid rgba( 148, 163, 184, 0.20 );
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -569,15 +510,13 @@
 
         @media ( max-width: 1000px ) {
 
-            .hero-grid,
-            .projects,
-            .contact-box {
+            .hero-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-grid {
-                display: flex;
-                flex-direction: column;
+            .cards,
+            .services {
+                grid-template-columns: repeat( 2, 1fr );
             }
 
             .stack {
@@ -586,10 +525,6 @@
 
             .company-box {
                 grid-template-columns: repeat( 2, 1fr );
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
             }
 
             .contact-box {
@@ -618,9 +553,10 @@
                 letter-spacing: -2px;
             }
 
+            .cards,
+            .services,
             .stack,
-            .company-box,
-            .projects {
+            .company-box {
                 grid-template-columns: 1fr;
             }
 
@@ -647,69 +583,65 @@
 
         <header class="header">
 
-            <div class="logo">
+            <a class="logo" href="#">
                 VANRLEY<span>.DEV</span>
-            </div>
+            </a>
 
-            <nav class="nav">
+            <nav class="nav" aria-label="Menu principal">
 
                 <a href="#sobre">Sobre</a>
+                <a href="#servicos">O que fazemos</a>
                 <a href="#stack">Stack</a>
                 <a href="#empresa">Empresa</a>
-                <a href="#projetos">Projetos</a>
                 <a href="#contato">Contato</a>
 
             </nav>
 
         </header>
 
-        <section class="hero">
+        <section class="hero" id="inicio">
 
             <div class="container hero-grid">
 
-                <div>
+                <article>
 
                     <div class="badge">
                         <i class="fa-solid fa-circle-check"></i>
-                        Desenvolvedor Full Stack para sistemas profissionais
+                        Desenvolvimento web profissional para empresas
                     </div>
 
                     <h1>
-                        Código limpo.
-                        <span class="gradient-text">Sistemas fortes.</span>
-                        Resultado real.
+                        Tecnologia forte para
+                        <span class="gradient-text">negócios que querem crescer.</span>
                     </h1>
 
                     <p>
-                        Desenvolvimento soluções digitais completas, modernas e escaláveis para empresas que precisam de sistemas rápidos,
-                        profissionais, responsivos e preparados para crescimento.
+                        Criamos sites, sistemas web, landing pages, aplicativos, lojas virtuais, hospedagem e integrações para empresas que precisam de presença digital profissional.
                     </p>
 
                     <div class="buttons">
 
                         <a class="btn btn-primary" href="#contato">
                             <i class="fa-brands fa-whatsapp"></i>
-                            Falar comigo
+                            Solicitar orçamento
                         </a>
 
-                        <a class="btn btn-secondary" href="#projetos">
+                        <a class="btn btn-secondary" href="#servicos">
                             <i class="fa-solid fa-layer-group"></i>
-                            Ver projetos
+                            Ver serviços
                         </a>
 
                     </div>
 
-                </div>
+                </article>
 
-                <div class="profile-wrap">
+                <aside class="profile-wrap" aria-label="Apresentação visual">
 
                     <div class="profile-glow"></div>
 
-                    <div class="profile-card">
-
-                        <img class="profile-image" src="SUA_FOTO.jpg" alt="Minha foto">
-
-                    </div>
+                    <figure class="profile-card">
+                        <img class="profile-image" src="SUA_FOTO.jpg" alt="Foto profissional de Vanrley">
+                    </figure>
 
                     <div class="mini-terminal">
 
@@ -721,15 +653,15 @@
 
                         <div class="code-line">
                             <span class="code-blue">const</span>
-                            developer
+                            projeto
                             =
-                            <span class="code-green">'Full Stack'</span>
+                            <span class="code-green">'digital'</span>
                         </div>
 
                         <div class="code-line">
-                            <span class="code-purple">stack</span>
+                            <span class="code-purple">empresa</span>
                             .
-                            build
+                            crescer
                             (
                             )
                         </div>
@@ -737,7 +669,7 @@
                         <div class="code-line">
                             deploy
                             (
-                            <span class="code-green">'production'</span>
+                            <span class="code-green">'online'</span>
                             )
                         </div>
 
@@ -756,7 +688,7 @@
 
                     </div>
 
-                </div>
+                </aside>
 
             </div>
 
@@ -766,14 +698,14 @@
 
             <div class="container">
 
-                <div class="section-title">
+                <header class="section-title">
                     <span>Sobre mim</span>
                     <h2>Desenvolvedor com visão técnica e visão de negócio.</h2>
-                </div>
+                </header>
 
                 <div class="cards">
 
-                    <div class="card">
+                    <article class="card">
 
                         <div class="card-icon">
                             <i class="fa-solid fa-server"></i>
@@ -782,12 +714,12 @@
                         <h3>Backend robusto</h3>
 
                         <p>
-                            Criação de sistemas, APIs, regras de negócio, autenticação, dashboards e integrações sob medida.
+                            Desenvolvimento de sistemas, APIs, regras de negócio, banco de dados, automações e integrações.
                         </p>
 
-                    </div>
+                    </article>
 
-                    <div class="card">
+                    <article class="card">
 
                         <div class="card-icon">
                             <i class="fa-solid fa-wand-magic-sparkles"></i>
@@ -796,12 +728,12 @@
                         <h3>Frontend moderno</h3>
 
                         <p>
-                            Interfaces bonitas, responsivas, rápidas e pensadas para gerar confiança no primeiro acesso.
+                            Interfaces profissionais, responsivas, rápidas e focadas em transmitir confiança para o cliente.
                         </p>
 
-                    </div>
+                    </article>
 
-                    <div class="card">
+                    <article class="card">
 
                         <div class="card-icon">
                             <i class="fa-solid fa-rocket"></i>
@@ -810,10 +742,123 @@
                         <h3>Entrega completa</h3>
 
                         <p>
-                            Estrutura, layout, banco de dados, painel administrativo, publicação e evolução do projeto.
+                            Estrutura, design, programação, publicação, hospedagem e evolução contínua do projeto.
                         </p>
 
-                    </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section" id="servicos">
+
+            <div class="container">
+
+                <header class="section-title">
+                    <span>O que fazemos</span>
+                    <h2>Soluções completas para sua empresa crescer no digital.</h2>
+                </header>
+
+                <div class="services">
+
+                    <article class="service-card">
+
+                        <img class="service-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Landing page profissional">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+
+                        <h3>Landing Pages</h3>
+
+                        <p>
+                            Páginas modernas para apresentar sua empresa, divulgar serviços, captar clientes e aumentar conversões.
+                        </p>
+
+                    </article>
+
+                    <article class="service-card">
+
+                        <img class="service-image" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Sistema web com dashboard">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+
+                        <h3>Sistemas Web</h3>
+
+                        <p>
+                            Sistemas personalizados com painel administrativo, cadastros, relatórios, permissões e gestão completa.
+                        </p>
+
+                    </article>
+
+                    <article class="service-card">
+
+                        <img class="service-image" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80" alt="Criação de aplicativos">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+
+                        <h3>Aplicativos</h3>
+
+                        <p>
+                            Aplicativos para empresas, delivery, vendas, atendimento, gestão interna e soluções sob medida.
+                        </p>
+
+                    </article>
+
+                    <article class="service-card">
+
+                        <img class="service-image" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80" alt="Hospedagem e servidores">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+
+                        <h3>Hospedagem de Sites</h3>
+
+                        <p>
+                            Publicação, domínio, servidor, certificado SSL, e-mail profissional e suporte técnico.
+                        </p>
+
+                    </article>
+
+                    <article class="service-card">
+
+                        <img class="service-image" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80" alt="Loja virtual profissional">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+
+                        <h3>Lojas Virtuais</h3>
+
+                        <p>
+                            Lojas online com produtos, carrinho, pedidos, pagamentos, painel de controle e gestão.
+                        </p>
+
+                    </article>
+
+                    <article class="service-card">
+
+                        <img class="service-image" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Integrações e APIs">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-plug-circle-bolt"></i>
+                        </div>
+
+                        <h3>Integrações e APIs</h3>
+
+                        <p>
+                            Integrações com WhatsApp, pagamentos, sistemas externos, automações e bancos de dados.
+                        </p>
+
+                    </article>
 
                 </div>
 
@@ -825,62 +870,62 @@
 
             <div class="container">
 
-                <div class="section-title">
+                <header class="section-title">
                     <span>Stack</span>
-                    <h2>Tecnologias que uso para construir soluções.</h2>
-                </div>
+                    <h2>Tecnologias usadas no desenvolvimento.</h2>
+                </header>
 
                 <div class="stack">
 
-                    <div class="stack-item">
+                    <article class="stack-item">
                         <i class="fa-brands fa-php"></i>
                         PHP
-                    </div>
+                    </article>
 
-                    <div class="stack-item">
+                    <article class="stack-item">
                         <i class="fa-brands fa-js"></i>
                         JavaScript
-                    </div>
+                    </article>
 
-                    <div class="stack-item">
+                    <article class="stack-item">
                         <i class="fa-solid fa-database"></i>
                         MySQL
-                    </div>
+                    </article>
 
-                    <div class="stack-item">
+                    <article class="stack-item">
                         <i class="fa-brands fa-html5"></i>
                         HTML5
-                    </div>
+                    </article>
 
-                    <div class="stack-item">
+                    <article class="stack-item">
                         <i class="fa-brands fa-css3-alt"></i>
                         CSS3
-                    </div>
+                    </article>
 
-                    <div class="stack-item">
+                    <article class="stack-item">
                         <i class="fa-brands fa-react"></i>
                         React
-                    </div>
+                    </article>
 
-                    <div class="stack-item">
+                    <article class="stack-item">
                         <i class="fa-brands fa-node-js"></i>
                         Node.js
-                    </div>
+                    </article>
 
-                    <div class="stack-item">
+                    <article class="stack-item">
                         <i class="fa-solid fa-plug"></i>
                         APIs
-                    </div>
+                    </article>
 
-                    <div class="stack-item">
+                    <article class="stack-item">
                         <i class="fa-brands fa-git-alt"></i>
                         Git
-                    </div>
+                    </article>
 
-                    <div class="stack-item">
+                    <article class="stack-item">
                         <i class="fa-solid fa-shield-halved"></i>
                         Segurança
-                    </div>
+                    </article>
 
                 </div>
 
@@ -892,14 +937,14 @@
 
             <div class="container">
 
-                <div class="section-title">
+                <header class="section-title">
                     <span>Empresa</span>
                     <h2>Atendimento profissional com presença real.</h2>
-                </div>
+                </header>
 
                 <div class="company-box">
 
-                    <div class="info">
+                    <article class="info">
 
                         <i class="fa-solid fa-building"></i>
 
@@ -907,9 +952,9 @@
 
                         <strong>00.000.000/0001-00</strong>
 
-                    </div>
+                    </article>
 
-                    <div class="info">
+                    <article class="info">
 
                         <i class="fa-solid fa-location-dot"></i>
 
@@ -917,9 +962,9 @@
 
                         <strong>Sua Cidade / Seu Estado</strong>
 
-                    </div>
+                    </article>
 
-                    <div class="info">
+                    <article class="info">
 
                         <i class="fa-solid fa-laptop-code"></i>
 
@@ -927,9 +972,9 @@
 
                         <strong>Desenvolvimento Web Full Stack</strong>
 
-                    </div>
+                    </article>
 
-                    <div class="info">
+                    <article class="info">
 
                         <i class="fa-solid fa-handshake"></i>
 
@@ -937,76 +982,7 @@
 
                         <strong>Projetos sob medida para empresas</strong>
 
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="section" id="projetos">
-
-            <div class="container">
-
-                <div class="section-title">
-                    <span>Projetos</span>
-                    <h2>Soluções digitais para problemas reais.</h2>
-                </div>
-
-                <div class="projects">
-
-                    <div class="project">
-
-                        <div>
-
-                            <h3>Sistema de Pedidos</h3>
-
-                            <p>
-                                Plataforma responsiva com produtos, adicionais, carrinho, painel administrativo e controle de pedidos em tempo real.
-                            </p>
-
-                            <div class="tags">
-                                <span class="tag">PHP</span>
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">MySQL</span>
-                                <span class="tag">Dashboard</span>
-                            </div>
-
-                        </div>
-
-                        <a class="btn btn-secondary" href="#">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            Ver detalhes
-                        </a>
-
-                    </div>
-
-                    <div class="project">
-
-                        <div>
-
-                            <h3>Painel Empresarial</h3>
-
-                            <p>
-                                Dashboard profissional com filtros, relatórios, gestão de dados, indicadores e controle operacional.
-                            </p>
-
-                            <div class="tags">
-                                <span class="tag">Admin</span>
-                                <span class="tag">Relatórios</span>
-                                <span class="tag">API</span>
-                                <span class="tag">Responsivo</span>
-                            </div>
-
-                        </div>
-
-                        <a class="btn btn-secondary" href="#">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            Ver detalhes
-                        </a>
-
-                    </div>
+                    </article>
 
                 </div>
 
@@ -1018,17 +994,17 @@
 
             <div class="container">
 
-                <div class="contact-box">
+                <article class="contact-box">
 
                     <div>
 
-                        <div class="section-title">
+                        <header class="section-title">
                             <span>Contato</span>
-                            <h2>Vamos tirar sua ideia do papel?</h2>
-                        </div>
+                            <h2>Vamos criar algo poderoso para sua empresa?</h2>
+                        </header>
 
                         <p>
-                            Entre em contato para criar um sistema profissional, moderno e preparado para sua empresa crescer.
+                            Solicite um orçamento para site, sistema web, aplicativo, loja virtual, hospedagem ou integração personalizada.
                         </p>
 
                     </div>
@@ -1047,7 +1023,7 @@
 
                     </div>
 
-                </div>
+                </article>
 
             </div>
 
@@ -1055,7 +1031,9 @@
 
         <footer class="footer">
 
-            © 2026 VANRLEY.DEV — Desenvolvedor Full Stack
+            <p>
+                © 2026 VANRLEY.DEV — Desenvolvimento Web Full Stack
+            </p>
 
         </footer>
 
